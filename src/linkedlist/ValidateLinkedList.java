@@ -39,7 +39,7 @@ public class ValidateLinkedList {
 				linkedList.print();
 				break;
 			case 7: 
-				linkedList.delete(getValue("Enter a node value to be deleted"));
+				linkedList.deleteAll(getValue("Enter a node value to be deleted"));
 				linkedList.print();
 				break;
 			case 8: 

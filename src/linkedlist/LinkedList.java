@@ -9,7 +9,7 @@ public class LinkedList<T extends Comparable<T>> implements Cloneable {
 	public LinkedList(Node<T> head) {
 		this.head = head;
 	}
-	
+
 	public LinkedList() {
 		this.head = null;
 	}
@@ -54,7 +54,7 @@ public class LinkedList<T extends Comparable<T>> implements Cloneable {
 			System.out.println("Invalid index");
 			return;
 		}
-		
+
 		if(index == 0) {
 			newNode.setNext(head);
 			head = newNode;
@@ -77,10 +77,24 @@ public class LinkedList<T extends Comparable<T>> implements Cloneable {
 
 	}
 
-	//Remove the first Element from the LL.
-	public T delete(T data){
-		//Have to implement
-		return null;
+	//Remove an element from the LL.
+	public void deleteAll(T data){
+		if(head != null) {
+			while(head.getData() == data) {
+				head = head.getNext();
+			}
+			Node<T> currentNode = head;
+			Node<T> previousNode = head;
+			while(currentNode != null) {
+				if(currentNode.getData() == data) {
+					previousNode.setNext(currentNode.getNext());
+					currentNode = currentNode.getNext();
+				}else {
+					previousNode = currentNode;
+					currentNode = currentNode.getNext();
+				}
+			}
+		}
 	}
 
 	//Delete the last node in the LL
@@ -93,7 +107,7 @@ public class LinkedList<T extends Comparable<T>> implements Cloneable {
 		}
 		previousNode.setNext(null);
 	}
-	
+
 	//Remove the first Element from the LL.
 	public T deleteFirst(){
 		if(head != null) {
@@ -156,7 +170,7 @@ public class LinkedList<T extends Comparable<T>> implements Cloneable {
 		}
 		return -1;
 	}
-	
+
 	public int lastIndexOf(T data) {
 		if(head != null) {
 			Node<T> currentNode = head;
@@ -171,13 +185,13 @@ public class LinkedList<T extends Comparable<T>> implements Cloneable {
 				}
 				currentNode = currentNode.getNext();
 			}
-			
+
 			return foundAt;
-			
+
 		}
 		return -1;
 	}
-	
+
 	public void print() {
 		Node<T> currentNode = head;
 		System.out.println("***************************************");
