@@ -1,6 +1,6 @@
 package linkedlist;
 
-//Linked Lists will have the HEAD node.
+//Linked Lists will have the HEAD node..
 //LL will be of a generic type and should be comparable
 public class LinkedList<T extends Comparable<T>> implements Cloneable {
 
