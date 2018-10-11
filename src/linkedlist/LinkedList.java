@@ -202,5 +202,47 @@ public class LinkedList<T extends Comparable<T>> implements Cloneable {
 		System.out.println("");
 		System.out.println("***************************************");
 	}
+	
+	public T printMiddleElement() {
+		if (head != null) {
+			Node<T> firstPointer = head;
+			Node<T> secondPointer = head;
+			while(secondPointer != null && secondPointer.getNext() !=  null) {
+				firstPointer = firstPointer.getNext();
+				secondPointer = secondPointer.getNext().getNext();
+			}
+			System.out.println("Returning " + firstPointer.getData());
+			return firstPointer.getData();
+		}
+		System.out.println("Returning null");
+		return null;
+	}
+	
+	public T printMiddleElement_v2() {
+		if(head != null) {
+			int count = 1;
+			Node<T> currentNode = head;
+			while(currentNode.getNext() != null)
+			{
+				count = count+ 1;
+				currentNode = currentNode.getNext();
+			}
+			if(count == 1) {
+				return head.getData();
+			}
+			else {
+				currentNode = head;
+				int position = 1;
+				while(currentNode.getNext() != null) {
+					currentNode = currentNode.getNext();
+					position = position + 1;
+					if (position >= count/2) {
+						return currentNode.getData();
+					}
+				}
+			}
+		}
+		return null;
+	}
 
 }

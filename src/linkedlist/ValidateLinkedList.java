@@ -12,7 +12,7 @@ public class ValidateLinkedList {
 		printOptions();
 		int value = getValue("Select an option");
 
-		while(value > 0 && value < 14 ) {
+		while(value > 0 && value < 16 ) {
 			switch(value) {
 			case 1: 
 				linkedList.addLast(getValue("Enter a node value to add - Default last"));
@@ -61,6 +61,12 @@ public class ValidateLinkedList {
 				System.out.println(linkedList.size());
 				linkedList.print();
 				break;
+			case 14: 
+				System.out.println(linkedList.printMiddleElement());
+				break;
+			case 15: 
+				System.out.println(linkedList.printMiddleElement_v2());
+				break;
 			case 0:
 				System.out.println("Exiting");
 				scan.close();
@@ -86,6 +92,8 @@ public class ValidateLinkedList {
 		System.out.println("11.Last index of the element");
 		System.out.println("12.Contains the element");
 		System.out.println("13.Size of the LinkedList");
+		System.out.println("14.Print Middle element");
+		System.out.println("15.Print Middle element");
 		System.out.println("0. Exit");
 		System.out.println("***************************************");
 
