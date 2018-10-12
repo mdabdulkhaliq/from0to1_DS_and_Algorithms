@@ -6,6 +6,17 @@ public class Stack<T> {
 	private Node<T> top = null;
 	private int currentSize = 0;
 	
+	public Stack() {
+		
+	}
+	
+	public void print() {
+		Node<T> currentNode = top;
+		while (currentNode != null) {
+			System.out.print(currentNode.getData() + "-");
+			currentNode = currentNode.getNext();
+		}
+	}
 	
 	public void push(T data) throws StackOverflowException {
 		if (currentSize == MAX_SIZE) {
@@ -42,5 +53,5 @@ public class Stack<T> {
 	public int size() {
 		return currentSize;
 	}
-	
+		
 }
