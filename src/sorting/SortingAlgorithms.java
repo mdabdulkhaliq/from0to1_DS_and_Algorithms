@@ -183,5 +183,31 @@ public class SortingAlgorithms {
 		}
 		
 	}
+	
+	public static int partitionQuickSort(int[] elements, int startIndex, int endIndex) {
+		//Make the last element as the pivot element
+		int pivot = elements[endIndex];
+		//Make the first element as the pivot index
+		int pIndex = startIndex;
+		//Loop from starting element to one less then the pivot which is the last index
+		for(int i=startIndex; i<endIndex; i++) {
+			if(elements[i] <= pivot) {
+				swap(i, pIndex);
+				pIndex++;
+			}
+		}
+		swap(pIndex, endIndex);
+		return pIndex;
+	}
+	
+	public static void quickSort(int[] elements, int startIndex, int endIndex) {
+		if(startIndex >= endIndex)
+			return;
+		
+		int pivotIndex = partitionQuickSort(elements, startIndex, endIndex);
+		quickSort(elements, startIndex, pivotIndex - 1);
+		quickSort(elements, pivotIndex + 1, endIndex);
+		
+	}
 
 }
